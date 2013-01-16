@@ -12,7 +12,7 @@
     <script type="text/javascript" charset="utf-8">
       $(function() {
         $("input[type='text'].datetime").datetimePicker({ 
-          format: "%B %-d, %Y %-I:%M%p",
+          format: "%a, %b %-d, %Y %-I:%M%p",
           unparsable: function() {
             console.log(this);
           }
@@ -30,7 +30,7 @@
             Here, we simply apply a datetime picker to an input element.
           </p>
           
-          <pre>$("input[type='text'].datetime").datetimePicker({ format: "%B %-d, %Y %-I:%M%p" });</pre>
+          <pre>$("input[type='text'].datetime").datetimePicker({ format: "%a, %b %-d, %Y %-I:%M%p" });</pre>
           
           <form action="#">
             <label>A Date</label>
