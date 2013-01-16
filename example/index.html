@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="../css/bootstrap-datetime-picker.css" type="text/css" media="screen" charset="utf-8" />
+    
+    <script src="../lib/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/bootstrap-datetime-picker.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("input[type='text'].datetime").datetimePicker({ 
+          format: "%B %-d, %Y %-I:%M%p",
+          unparsable: function() {
+            console.log(this);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>Datetime Picker Examples</h1>
+          
+          <p>
+            Here, we simply apply a datetime picker to an input element.
+          </p>
+          
+          <pre>$("input[type='text'].datetime").datetimePicker({ format: "%B %-d, %Y %-I:%M%p" });</pre>
+          
+          <form action="#">
+            <label>A Date</label>
+            <input type="text" class="datetime"/>
+          </form>
+        </div>
+      </div>
+    </div>    
+  </body>
+</html>

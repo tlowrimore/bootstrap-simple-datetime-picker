@@ -1,0 +1,68 @@
+.datetime-picker .dropdown-menu {
+    margin-top:             -9px;
+}
+
+.datetime-picker .dropdown-menu:before,
+.datetime-picker .dropdown-menu:after {
+    content:                '';
+    display:                inline-block;
+    position:               absolute;
+}
+
+.datetime-picker .dropdown-menu:before {
+    border-left:            7px solid transparent;
+    border-right:           7px solid transparent;
+    border-bottom:          7px solid #CCC;
+    border-bottom-color:    rgba(0, 0, 0, 0.2);
+    top:                    -7px;
+    left:                   6px;
+}
+
+.datetime-picker .dropdown-menu:after {
+    border-left:            6px solid transparent;
+    border-right:           6px solid transparent;
+    border-bottom:          6px solid white;
+    top:                    -6px;
+    left:                   7px;
+}
+
+.datetime-picker .calendar .btn-month,
+.datetime-picker .calendar .btn-previous,
+.datetime-picker .calendar .btn-next,
+.datetime-picker .calendar .btn-date {
+    display:                block;
+    color:                  #333333;
+    height:                 24px;
+    padding:                4px 0 0 0;
+}
+
+.datetime-picker .calendar .btn-month:hover,
+.datetime-picker .calendar .btn-previous:hover,
+.datetime-picker .calendar .btn-next:hover,
+.datetime-picker .calendar .btn-date:hover {
+    text-decoration:        none;
+    background-color:       #EEEEEE;
+}
+
+.datetime-picker .calendar .btn-date {
+    width:                  30px;
+    text-align:             center;
+}
+
+.datetime-picker .calendar .date-current,
+.datetime-picker .calendar .date-current:hover {
+    background-color:       #D9EDF7;
+    font-weight:            bold;
+}
+
+.datetime-picker .calendar .month-previous,
+.datetime-picker .calendar .month-next {
+    color:                  #999999;
+}
+
+.datetime-picker .time-selectors {
+    text-align:             center;
+    border-top:             1px solid #EEEEEE;
+    margin-top:             2px;
+    padding-top:            12px;
+}
