@@ -1,6 +1,6 @@
 # bootstrap-simple-datetime-picker
 
-_Note: This is a work-in-progress.  I'm very happy to accept pull-requests for enhancements and bug fixes, if you think this plugin could be improved._
+__Note: This is a work-in-progress.  I'm very happy to accept pull-requests for enhancements and bug fixes, if you think this plugin could be improved.__
 
 ## Why another datetime picker?
 
@@ -9,7 +9,7 @@ _Note: This is a work-in-progress.  I'm very happy to accept pull-requests for e
 * _Style_: This one is subjective, and I don't want to imply that other plugins exhibit poor style--I simply wanted a datetime picker that was easy for me to maintain, as maintaining this plugin is not my day job.
 * _Self Improvement_: Lastly, I wanted to write a datetime picker to learn more about writing JQuery plugins, and as a means to refine my knowledge of working with dates and time (they're so weird!).
 
-# Usage
+## Usage
 
 TODO:
 
