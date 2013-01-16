@@ -2,7 +2,7 @@
 
 _Note: This is a work-in-progress.  I'm very happy to accept pull-requests for enhancements and bug fixes, if you think this plugin could be improved._
 
-Ok, here's the deal: yes, this is yet another datetime picker for Twitter Bootstrap.  Why, you ask?  Well, for a few reasons.  Allow me to enumerate:
+## Why another datetime picker?
 
 * _Format Strings_: After years of specifying and parsing format strings that look like `MM/dd/YYYY`, I've found the `strtime` format style to allow for more robust formatting, and it's much simpler to parse.  So that previous format ends up looking like `%m/%d/%Y`.  It may not be as readable to non-programmers, then again, it's not intended for them.
 * _Adaptive Layout_: I wanted a datetime picker that adapted its layout to reflect the needs specified by the date format string.  This means that if your date format string has no time parts, the picker will not render them.  Also, if your format string indicates 12-hour time, then a meridian selector is rendered.
