@@ -92,7 +92,10 @@
                          .on("click",   ".btn-date",            $.proxy(this.onDateSelect, this))
                          .on("change",  ".hour-selector",       $.proxy(this.onHourSelect, this))
                          .on("change",  ".minute-selector",     $.proxy(this.onMinuteSelect, this))
-                         .on("change",  ".meridian-selector",   $.proxy(this.onMeridianSelect, this));
+                         .on("change",  ".meridian-selector",   $.proxy(this.onMeridianSelect, this))
+
+                          // corrects undesirable behavior in FF.
+                          .on("click",   ".hour-selector, .minute-selector, .meridian-selector", false);
                          
         },
         
@@ -299,6 +302,16 @@
             timeSelectors.find(".meridian-selector").val(currentMeridian);
         },
         
+        selectedHour: function() {
+            var timeSelectors   = this.timeSelectors(),
+                meridian        = timeSelectors.find(".meridian-selector").val(),
+                hour            = parseInt(timeSelectors.find(".hour-selector").val());
+                
+                if(meridian.toLowerCase() == "pm") hour = (hour + 12) % 24;
+                
+                return hour;
+        },
+        
         onPrevious: function(evt) {
             evt.stopImmediatePropagation();
             evt.preventDefault();
@@ -334,10 +347,7 @@
         },
         
         onHourSelect: function(evt) {
-            var selector    = $(evt.currentTarget),
-                hour        = selector.val();
-            
-            this.value.setHours(hour);
+            this.value.setHours(this.selectedHour());
             this.renderElementValue();
         },
         
@@ -350,13 +360,7 @@
         },
         
         onMeridianSelect: function(evt) {
-            var selector    = $(evt.currentTarget),
-                meridian    = selector.val(),
-                hour        = parseInt(this.timeSelectors().find(".hour-selector").val());
-            
-            if(meridian.toLowerCase() == "pm") hour = (hour + 12) % 24;
-            
-            this.value.setHours(hour);
+            this.value.setHours(this.selectedHour());
             this.renderElementValue();
         },
         

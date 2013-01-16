@@ -59,6 +59,11 @@ describe("The DatetimePicker.Parser", function() {
         var setterFns   = parser.setterFns,
             result, expectedResult;
             
+        var resultsToUTCString = function() {
+            result          = result.toUTCString();
+            expectedResult  = expectedResult.toUTCString();
+        }
+            
         beforeEach(function() {
             result          = new Date();
             expectedResult  = new Date(result);
@@ -69,6 +74,7 @@ describe("The DatetimePicker.Parser", function() {
             
             beforeEach(function() {
                 setterFns["%a"](result, day);
+                resultsToUTCString();
             });
             
             it("should perform a noop on the date", function() {
@@ -81,6 +87,7 @@ describe("The DatetimePicker.Parser", function() {
             
             beforeEach(function() {
                 setterFns["%a"](result, day);
+                resultsToUTCString();
             });
             
             it("should perform a noop on the date", function() {
@@ -95,6 +102,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%b"](result, monthName, locale);
                 expectedResult.setMonth(expectedMonth);
+                resultsToUTCString();
             });
             
             it("should set the month to '" +monthName+ "'",  function() {
@@ -109,6 +117,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%B"](result, monthName, locale);
                 expectedResult.setMonth(expectedMonth);
+                resultsToUTCString();
             });
             
             it("should set the month to '" +monthName+ "'",  function() {
@@ -122,6 +131,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%d"](result, expectedDate);
                 expectedResult.setDate(expectedDate);
+                resultsToUTCString();
             });
             
             it("should set the date to '" +expectedDate+ "'",  function() {
@@ -135,6 +145,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%-d"](result, expectedDate);
                 expectedResult.setDate(expectedDate);
+                resultsToUTCString();
             });
             
             it("should set the date to '" +expectedDate+ "'",  function() {
@@ -148,6 +159,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%H"](result, expectedHour);
                 expectedResult.setHours(expectedHour);
+                resultsToUTCString();
             });
             
             it("should set the hour to '" +expectedHour+ "'",  function() {
@@ -161,6 +173,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%-H"](result, expectedHour);
                 expectedResult.setHours(expectedHour);
+                resultsToUTCString();
             });
             
             it("should set the hour to '" +expectedHour+ "'",  function() {
@@ -174,6 +187,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%I"](result, expectedHour);
                 expectedResult.setHours(expectedHour);
+                resultsToUTCString();
             });
             
             it("should set the hour to '" +expectedHour+ "'",  function() {
@@ -188,6 +202,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%-I"](result, argHour);
                 expectedResult.setHours(expectedHour);
+                resultsToUTCString();
             });
             
             it("should set the hour to '" +expectedHour+ "'",  function() {
@@ -202,6 +217,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%m"](result, argMonth);
                 expectedResult.setMonth(expectedMonth);
+                resultsToUTCString();
             });
             
             it("should set the month to '" +expectedMonth+ "'",  function() {
@@ -216,6 +232,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%-m"](result, argMonth);
                 expectedResult.setMonth(expectedMonth);
+                resultsToUTCString();
             });
             
             it("should set the month to '" +expectedMonth+ "'",  function() {
@@ -229,6 +246,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%M"](result, expectedMinute);
                 expectedResult.setMinutes(expectedMinute);
+                resultsToUTCString();
             });
             
             it("should set the hour to '" +expectedMinute+ "'",  function() {
@@ -242,6 +260,7 @@ describe("The DatetimePicker.Parser", function() {
                     setterFns["%I"](result, hour);
                     setterFns["%p"](result, meridian);
                     expectedResult.setHours(expectedHour);
+                    resultsToUTCString();
                 });
                 
                 it("should set the hour to '" +expectedHour+ "'", function() {
@@ -288,6 +307,7 @@ describe("The DatetimePicker.Parser", function() {
                     setterFns["%I"](result, hour);
                     setterFns["%P"](result, meridian);
                     expectedResult.setHours(expectedHour);
+                    resultsToUTCString();
                 });
                 
                 it("should set the hour to '" +expectedHour+ "'", function() {
@@ -334,6 +354,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%S"](result, expectedSecond);
                 expectedResult.setSeconds(expectedSecond);
+                resultsToUTCString();
             });
             
             it("should set the second to '" +expectedSecond+ "'",  function() {
@@ -348,6 +369,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%y"](result, argYear);
                 expectedResult.setFullYear(expectedYear);
+                resultsToUTCString();
             });
             
             it("should set the year to '" +expectedYear+ "'",  function() {
@@ -361,6 +383,7 @@ describe("The DatetimePicker.Parser", function() {
             beforeEach(function() {
                 setterFns["%Y"](result, expectedYear);
                 expectedResult.setFullYear(expectedYear);
+                resultsToUTCString();
             });
             
             it("should set the year to '" +expectedYear+ "'",  function() {
