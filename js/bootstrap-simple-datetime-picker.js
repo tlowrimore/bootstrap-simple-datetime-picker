@@ -17,6 +17,9 @@
 
 (function($) {
     
+    // we'll use this to delimit date parts
+    var DATE_PART_DELIMITER = "-";
+    
     // Pads single digits with one zero on the left.  We'll be using the hell out
     // of this.
     var lpad = function(digitStr) {
@@ -258,12 +261,13 @@
             workingValue.setDate(-(workingValue.getDay() - 1));
             
             dateButtons.each(function() {
-                date    = workingValue.getDate();
+                year    = workingValue.getFullYear();
                 month   = workingValue.getMonth();
+                date    = workingValue.getDate();
                 time    = workingValue.getTime();
                 btn     = $(this);
                 
-                btn.attr("href", "#" + time).html(date);
+                btn.attr("href", "#" + [year,month,date].join(DATE_PART_DELIMITER)).html(date);
                 
                 // set style classes for dates that fall within the previous and
                 // next months.
@@ -336,10 +340,11 @@
         onDateSelect: function(evt) {
             evt.preventDefault();
             
-            var btn     = $(evt.currentTarget),
-                time    = btn.attr("href").slice(1);
+            var btn         = $(evt.currentTarget),
+                dateParts   = btn.attr("href").slice(1).split(DATE_PART_DELIMITER),
+                value       = this.value;
             
-            this.value.setTime(time);
+            value.setFullYear.apply(value, dateParts);
             this.monthOffset = 0;
             this.render();
             
