@@ -33,7 +33,7 @@
     // Regular expressions used in the date formatter and parser
     var dateFormatMatcher           = /%(?:-?[dHIm]|[aAbBMpPSyY])/g,
         twelveHourMatcher           = /%-?I/g,
-        nonmutativeKeyCodeMatcher   = /9|13|16|17|18|20|27|37|38|39|40|91|93/;
+        nonmutativeKeyCodeMatcher   = /^(?:9|13|16|17|18|20|27|37|38|39|40|91|93)$/;
     
     // Makes typing arrays suck less. Inspired by Ruby's %w().
     var $w = function(str) { return str.split(/\s+/); }
@@ -370,6 +370,7 @@
         },
         
         onDateStringChange: function(evt) {
+            console.log(evt.keyCode)
             if(!nonmutativeKeyCodeMatcher.test(evt.keyCode)) {
                 this.parseValue();
                 this.renderDropdown();
