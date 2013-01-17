@@ -105,8 +105,8 @@
         parseValue: function() {
             if(this.$element.val()) {
                 try {
-                    var time    = this.parser.parse(this.$element.val(), this.format, this.locale);
-                    this.value.setTime(time);
+                    var date = this.parser.parse(this.$element.val(), this.format, this.locale);
+                    this.value.setTime(date.getTime());
                 } catch(e) {
                     this.unparsable && this.unparsable.call(this.$element);
                 }
@@ -228,7 +228,7 @@
         renderHeader: function() {
             var value           = this.value,
                 currentMonth    = value.getMonth(),
-                workingValue    = new Date(value);
+                workingValue    = new Date(value.getTime());
                 
             workingValue.setMonth(currentMonth + this.monthOffset);
             
@@ -243,7 +243,7 @@
             var value           = this.value,
                 currentDate     = value.getDate(),
                 currentTime     = value.getTime(),               
-                workingValue    = new Date(value),
+                workingValue    = new Date(value.getTime()),
                 dateButtons     = this.calendar().find("a.btn-date"),
                 date, month, time, btn;
                 
@@ -370,7 +370,6 @@
         },
         
         onDateStringChange: function(evt) {
-            console.log(evt.keyCode)
             if(!nonmutativeKeyCodeMatcher.test(evt.keyCode)) {
                 this.parseValue();
                 this.renderDropdown();
